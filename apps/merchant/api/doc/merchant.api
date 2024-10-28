@@ -1,0 +1,34 @@
+syntax = "v1"
+
+info (
+	title:       "Merchant API"
+	version:     "1.0.0"
+	description: "API for merchant operations"
+)
+
+type QueryReq {
+	Query         string `json:"query"`
+	OperationName string `json:"operationName"`
+}
+
+type ErrorInfo {
+	Message string `json:"message"`
+}
+
+type QueryResp {
+	Errors ErrorInfo   `json:"errors,omitempty"`
+	Data   interface{} `json:"data,omitempty"`
+}
+
+@server (
+	// jwt:    Auth
+	prefix: /api/v1
+)
+service merchant {
+	@handler queryHandler
+	post /query (QueryReq) returns (QueryResp)
+
+	@handler playGroundHandler
+	get /ground
+}
+

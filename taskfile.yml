@@ -1,0 +1,10 @@
+version: "3"
+
+tasks:
+  model:
+    cmds:
+      - cd ./apps/{{.a}}/api && gqlgen
+  api:
+    cmds:
+      - goctl api format --dir ./apps/{{.a}}/api/doc/{{.a}}.api
+      - goctl api go -api ./apps/{{.a}}/api/doc/{{.a}}.api -dir ./apps/{{.a}}/api --style=go_zero

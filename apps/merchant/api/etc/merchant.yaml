@@ -1,0 +1,9 @@
+Name: merchant
+Host: 0.0.0.0
+Port: 8888
+
+Auth:
+  AccessSecret: zero-server
+  AccessExpire: 36000
+
+DataFile: merchant.db

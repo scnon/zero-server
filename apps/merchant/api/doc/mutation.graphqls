@@ -1,0 +1,8 @@
+type Mutation {
+  createUser(username: String!, nickname: String!): SysUser!
+  updateUser(id: ID!, username: String, nickname: String): SysUser!
+  assignRole(userId: ID!, roleId: ID!): SysUser!
+
+  createRole(name: String!): SysRole!
+  updateRole(id: ID!, name: String): SysRole!
+}
